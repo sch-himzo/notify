@@ -12,7 +12,7 @@
 void usage();
 int pushToSlack(int msgCode);
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int embMachineState = 0;
 	int embMachinePrevState = 0;
@@ -165,10 +165,9 @@ void main(int argc, char **argv)
 			//Calculate actual stitch number
 			int num2 = ((int)pkt_data[DATASHIFT + 15] | (int)pkt_data[DATASHIFT + 16] << 8 | (int)pkt_data[DATASHIFT + 17] << 16 | (int)pkt_data[DATASHIFT + 18] << 24) - 1024;
 			//printf("\nStitch: %d\n", num2);
-		}else{
+		}else {
+
 		    int num2 = 0;
-		}
-		else {
 			//If machine is not running, find out the reason
 			switch (pkt_data[DATASHIFT + 7])
 			{
